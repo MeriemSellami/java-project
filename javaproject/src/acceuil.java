@@ -6,14 +6,11 @@ import java.awt.event.ActionListener;
 public class acceuil extends JFrame {
     public acceuil() {
         JLabel t1 = new JLabel("Create your account or login");
-
         JButton b1 = new JButton("LogIn");
         JButton b2 = new JButton("SignUp");
-
         JPanel p1 = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
-
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -21,7 +18,6 @@ public class acceuil extends JFrame {
                 a.setVisible(true);
             }
         });
-
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -29,7 +25,6 @@ public class acceuil extends JFrame {
                 c.setVisible(true);
             }
         });
-
         p1.add(t1, gbc);
         Color lightPurple = new Color(230, 230, 250);
         Color pinkColor = new Color(255,182,193);
