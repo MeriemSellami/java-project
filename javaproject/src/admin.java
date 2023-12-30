@@ -16,21 +16,16 @@ public class admin extends JFrame {
         setTitle("Admin");
         setSize(600, 400);
         setLocationRelativeTo(null);
-
         JPanel panel = new JPanel();
-
         JLabel jLabel1 = new JLabel("Choice:");
         panel.add(jLabel1);
-
         jComboBox1 = new JComboBox<>();
         jComboBox1.addItem("Speciality");
         jComboBox1.addItem("Club");
         panel.add(jComboBox1);
-
         String[] columnNames = {"name", "age", "Speciality", "Club"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         JTable table = new JTable(model);
-
         try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "root");
              Statement stmt = con.createStatement();
              ResultSet rs = stmt.executeQuery("select * from client")) {
@@ -45,7 +40,6 @@ public class admin extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
         JButton filtrer = new JButton("Filter");
         filtrer.addActionListener(new ActionListener() {
             @Override
