@@ -54,8 +54,6 @@ public class user extends JFrame {
                 }
                 String speciality = (String) jcb.getSelectedItem();
                 String club = (String) jcb1.getSelectedItem();
-
-                // add client to database
                 addclienttoDB(name, age, speciality, club);
                 JOptionPane.showMessageDialog(null, "client added successfully");
                 
