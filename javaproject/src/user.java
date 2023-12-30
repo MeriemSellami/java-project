@@ -75,7 +75,7 @@ public class user extends JFrame {
             });
 
             JPanel p = new JPanel(new FlowLayout());
-            Color lightPurple = new Color(230, 230, 250); // Adjust the RGB values for a lighter shade of purple
+            Color lightPurple = new Color(230, 230, 250);
             Color pinkColor = new Color(255,182,193);
             p.setBackground(lightPurple);
             jbt.setBackground(pinkColor);
