@@ -1,13 +1,13 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class admin extends JFrame {
     private JComboBox<String> jComboBox1;
@@ -17,12 +17,12 @@ public class admin extends JFrame {
         setSize(600, 400);
         setLocationRelativeTo(null);
         JPanel panel = new JPanel();
-        JLabel jLabel1 = new JLabel("Choice:");
-        panel.add(jLabel1);
-        jComboBox1 = new JComboBox<>();
-        jComboBox1.addItem("Speciality");
-        jComboBox1.addItem("Club");
-        panel.add(jComboBox1);
+        JLabel jLabel = new JLabel("Choix");
+        panel.add(jLabel);
+        jCB1 = new JComboBox<>();
+        jCB1.addItem("Speciality");
+        jCB1.addItem("Club");
+        panel.add(jCB1);
         String[] columnNames = {"name", "age", "Speciality", "Club"};
         DefaultTableModel model = new DefaultTableModel(columnNames, 0);
         JTable table = new JTable(model);
@@ -40,11 +40,11 @@ public class admin extends JFrame {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        JButton filtrer = new JButton("Filter");
-        filtrer.addActionListener(new ActionListener() {
+        JButton ok = new JButton(">");
+        ok.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String choice = (String) jComboBox1.getSelectedItem();
+                String choice = (String) jCB1.getSelectedItem();
                 if (choice.equals("Speciality")) {
                     special s = new special();
                     s.setVisible(true);
@@ -55,8 +55,8 @@ public class admin extends JFrame {
             }
         });
         Color pinkColor = new Color(255,182,193);
-        filtrer.setBackground(pinkColor);
-        panel.add(filtrer);
+        ok.setBackground(pinkColor);
+        panel.add(ok);
 
         JButton delete = new JButton("Delete");
         delete.addActionListener(new ActionListener() {
@@ -76,8 +76,6 @@ public class admin extends JFrame {
         delete.setBackground(pinkColor);
         JScrollPane scrollPane = new JScrollPane(table);
         panel.add(scrollPane);
-
-        // Set the background color to light purple for the panel
         Color lightPurple = new Color(230, 230, 250);
         panel.setBackground(lightPurple);
         add(panel);
